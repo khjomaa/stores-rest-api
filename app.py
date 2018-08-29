@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import os
 from __future__ import print_function
 from datetime import timedelta
 from flask import Flask
@@ -14,7 +14,7 @@ __author__ = 'khalilj'
 __creation_date__ = '08/26/2018'
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=300)
 app.secret_key = 'jose'
