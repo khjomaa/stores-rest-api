@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import os
 from __future__ import print_function
+import os
 from datetime import timedelta
 from flask import Flask
 from flask_restful import Api
